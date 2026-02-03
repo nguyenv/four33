@@ -32,7 +32,7 @@ def make_sound(seq, filename="output.wav"):
         # one full wave cycle = 360° = 2π radians = full circle
         
         # sine
-        # tone = 0.2 * np.sin(2 * np.pi * freq * t)
+        tone = 0.2 * np.sin(2 * np.pi * freq * t)
 
         # square
         # tone = 0.2 * np.sign(np.sin(2 * np.pi * freq * t))
@@ -44,18 +44,18 @@ def make_sound(seq, filename="output.wav"):
         # tone = 0.2 * (2 * np.abs(2 * (t * freq - np.floor(t * freq + 0.5))) - 1)
 
         # ADSR envelope
-        attack = 0.02
-        decay = 0.03
-        sustain = 0.6
-        release = 0.05
+        # attack = 0.02
+        # decay = 0.03
+        # sustain = 0.6
+        # release = 0.05
 
-        env = np.ones_like(t)
-        env[:int(attack*SAMPLE_RATE)] = np.linspace(0,1,int(attack*SAMPLE_RATE))
-        env[int(attack*SAMPLE_RATE):int((attack+decay)*SAMPLE_RATE)] = np.linspace(1,sustain,int(decay*SAMPLE_RATE))
-        env[int((attack+decay)*SAMPLE_RATE):int((duration-release)*SAMPLE_RATE)] = sustain
-        env[int((duration-release)*SAMPLE_RATE):] = np.linspace(sustain,0,int(release*SAMPLE_RATE))
+        # env = np.ones_like(t)
+        # env[:int(attack*SAMPLE_RATE)] = np.linspace(0,1,int(attack*SAMPLE_RATE))
+        # env[int(attack*SAMPLE_RATE):int((attack+decay)*SAMPLE_RATE)] = np.linspace(1,sustain,int(decay*SAMPLE_RATE))
+        # env[int((attack+decay)*SAMPLE_RATE):int((duration-release)*SAMPLE_RATE)] = sustain
+        # env[int((duration-release)*SAMPLE_RATE):] = np.linspace(sustain,0,int(release*SAMPLE_RATE))
 
-        tone = env * np.sin(2*np.pi*freq*t)
+        # tone = env * np.sin(2*np.pi*freq*t)
 
         audio = np.concatenate([audio, tone])
 
@@ -113,5 +113,6 @@ def make_visual(seq):
 if __name__ == "__main__":
     n = 120  # Number of random numbers to generate
     random_numbers = middle_squares(FOURTHIRTYTHREE, n)
+    print(random_numbers)
     make_sound(random_numbers)
     make_visual(random_numbers)
