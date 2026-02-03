@@ -13,4 +13,4 @@ This is one of the earliest PRNGs from 1949 by John von Neumann. It was sufficie
 
 For example, with the seed 433, only after 71 iterations, it cycles between numbers [4100, 8100, 6100]. Despite this limitation, it leads to a cool audio and visual experience! Although it "feels random" at the beginning, you can experience the collapse into a pattern within 20 seconds in the video above.
 
-Note: do not treat this code as final grade production code. I am using as a method to take notes and learn basics about  sound.
+Note: do not treat this code as final grade production code. I am using this script to take notes and learn basics about  sound.
